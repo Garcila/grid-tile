@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.5.0/cloudinary-core.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <title>Tile Grid</title>
+</head>
+
+<body>
+  <div class="app">
+  </div>
+
+  <script>
+    let cl = new cloudinary.Cloudinary({
+      cloud_name: "garcila",
+      secure: true
+    });
+
+
+    const app = document.querySelector('.app');
+    const kinds = ['wide', 'tall'];
+
+    for (let i = 0; i < 57; i++) {
+      let kind = kinds[Math.floor(Math.random() * 2)];
+
+      let tag = cl.imageTag(`1000-faces/${i}`);
+      let image = tag.toHtml();
+      // const face = document.createElement('img');
+      //   // const imageUrl = ``;
+      //   // face.setAttribute('class', `face ${kind}`);
+      //   // face.src = `./images/${i}.jpg`;
+      //   // face.src = tag.toHtml();
+      //   var a = tag.toHtml();
+      //   // face.alt = `face ${i}`;
+
+      // app.appendChild();
+      $('.app').append(image);
+    }
+  </script>
+</body>
+
+</html>
